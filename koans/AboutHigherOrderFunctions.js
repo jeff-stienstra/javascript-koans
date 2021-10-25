@@ -5,16 +5,18 @@ var _; //globals
       that you would expect in Prototype.js (or Ruby), but without extending any of the built-in JavaScript objects.
       It's the tie to go along with jQuery's tux."
  */
-describe("About Higher Order Functions", function () {
 
-  it("should use filter to return array items that meet a criteria", function () {
-    var numbers = [1,2,3];
-    var odd = _(numbers).filter(function (x) { return x % 2 !== 0 });
+  describe('About Higher Order Functions', function () {
 
-    expect(odd).toEqual(FILL_ME_IN);
-    expect(odd.length).toBe(FILL_ME_IN);
-    expect(numbers.length).toBe(FILL_ME_IN);
-  });
+    it('should use filter to return array items that meet a criteria', function () {
+      var numbers = [1,2,3];
+      var odd = _(numbers).filter(function (x) { return x % 2 !== 0 });
+
+      expect(odd).toEqual([1,3]);
+      expect(odd.length).toBe(2);
+      expect(numbers.length).toBe(3);
+    })
+  })
 
   it("should use 'map' to transform each element", function () {
     var numbers = [1, 2, 3];

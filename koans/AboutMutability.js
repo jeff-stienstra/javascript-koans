@@ -44,19 +44,23 @@ describe("About Mutability", function() {
     {
       var fullName = firstname + " " + lastname;
 
-      this.getFirstName = function () { return firstname; };
-      this.getLastName = function () { return lastname; };
-      this.getFullName = function () { return fullName; };
+      this.firstname = firstname;
+      this.lastname = lastname;
+      this.fullname = firstname + " " + lastname;
+
+      this.getFirstName = function () { return this.firstname; };
+      this.getLastName = function () { return this.lastname; };
+      this.getFullName = function () { return this.firstname + " " + this.lastname; };
     }
     var aPerson = new Person ("John", "Smith");
 
     aPerson.firstname = "Penny";
     aPerson.lastname = "Andrews";
-    aPerson.fullName = "Penny Andrews";
+    // aPerson.fullName = "Penny Andrews";
 
-    expect(aPerson.getFirstName()).toBe('John');
-    expect(aPerson.getLastName()).toBe('Smith');
-    expect(aPerson.getFullName()).toBe('John Smith');
+    expect(aPerson.getFirstName()).toBe('Penny');
+    expect(aPerson.getLastName()).toBe('Andrews');
+    expect(aPerson.getFullName()).toBe('Penny Andrews');
 
     aPerson.getFullName = function () {
       return aPerson.lastname + ", " + aPerson.firstname;
