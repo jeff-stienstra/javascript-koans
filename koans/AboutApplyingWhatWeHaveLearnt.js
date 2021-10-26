@@ -114,24 +114,21 @@ describe("About Applying What We Have Learnt", function() {
 //  ];
 
   it("should count the ingredient occurrence (functional)", function () {
-    // const ingredientCount = {};
+    const ingredientCount = {};
 
-    // for (const product of products) {
+    for (const product of products) {
     
-    //   for (const ingredient of product.ingredients) {
-    //     if (!ingredientCount[ingredient]) {
-    //       ingredientCount[ingredient] = 1
-    //     } else {
-    //       ingredientCount[ingredient] += 1
-    //     }
-    //   }
-    // }
+      for (const ingredient of product.ingredients) {
+        if (!ingredientCount[ingredient]) {
+          ingredientCount[ingredient] = 1
+        } else {
+          ingredientCount[ingredient] += 1
+        }
+      }
+    }
 
-    const mushroomCount = _.chain(products)
-      .map((product) => product.ingredients)
-      .value();
-console.log(mushroomCount);
-    // expect(ingredientCount['mushrooms']).toBe(2);
+    
+    expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/
