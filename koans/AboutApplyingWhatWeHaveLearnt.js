@@ -131,7 +131,7 @@ describe("About Applying What We Have Learnt", function() {
     /* chain together map(), flatten() and reduce() */
 
     expect(ingredientCount['mushrooms']).toBe(2);
-    console.log(allIngredients);
+    console.log(allIngredients); //  <-- why is it repeating the ingredientCount 5 times??
   });
 
   /*********************************************************************************/
