@@ -114,24 +114,24 @@ describe("About Applying What We Have Learnt", function() {
 //  ];
 
   it("should count the ingredient occurrence (functional)", function () {
-    var ingredientCount = {};
+    // const ingredientCount = {};
 
-    let allIngredients = products.map(product => {
-      product.ingredients.map(ingredient => {
-        if (!ingredientCount[ingredient]) {
-          ingredientCount[ingredient] = 1
-        } else {
-          ingredientCount[ingredient] += 1
-        }
-      })
-      console.log("==ingredientCount== ", ingredientCount);
-      return ingredientCount;
-    })
+    // for (const product of products) {
+    
+    //   for (const ingredient of product.ingredients) {
+    //     if (!ingredientCount[ingredient]) {
+    //       ingredientCount[ingredient] = 1
+    //     } else {
+    //       ingredientCount[ingredient] += 1
+    //     }
+    //   }
+    // }
 
-    /* chain together map(), flatten() and reduce() */
-
-    expect(ingredientCount['mushrooms']).toBe(2);
-    console.log(allIngredients); //  <-- why is it repeating the ingredientCount 5 times??
+    const mushroomCount = _.chain(products)
+      .map((product) => product.ingredients)
+      .value();
+console.log(mushroomCount);
+    // expect(ingredientCount['mushrooms']).toBe(2);
   });
 
   /*********************************************************************************/

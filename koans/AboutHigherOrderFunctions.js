@@ -71,7 +71,6 @@ var _; //globals
   it("should use range to generate an array", function() {
       expect(_.range(3)).toEqual([0, 1, 2]);
       expect(_.range(1, 4)).toEqual([1, 2, 3]);
-      console.log(_.range(0, -4, -1)); // <-- why does it print an empty array without the -1? Can't find much documentation of .range(). is Array.fill() a replacement?
       expect(_.range(0, -4, -1)).toEqual([0, -1, -2, -3]);
   });
 
@@ -79,7 +78,7 @@ var _; //globals
       expect(_([ [1, 2], [3, 4] ]).flatten()).toEqual([1, 2, 3, 4]);
   });
 
-  it("should use chain() ... .value() to use multiple higher order functions", function() {
+  it("should use chain() ... .value() to use multiple higher order functions", function() {  //<-- is chain() ... .value() still standared way to chain functions?
       var result = _([ [0, 1], 2 ]).chain()
                        .flatten()
                        .map(function(x) { return x+1 } )
